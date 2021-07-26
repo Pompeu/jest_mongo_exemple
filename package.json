@@ -1,0 +1,33 @@
+{
+  "name": "jest_mongo_exemple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pompeu/jest_mongo_exemple.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pompeu/jest_mongo_exemple/issues"
+  },
+  "homepage": "https://github.com/Pompeu/jest_mongo_exemple#readme",
+  "dependencies": {
+    "@shelf/jest-mongodb": "^2.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "morgan": "^1.10.0",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.4"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
