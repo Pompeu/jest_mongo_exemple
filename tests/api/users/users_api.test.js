@@ -35,6 +35,40 @@ describe("Create user endpoint", () => {
         });
     });
   });
+
+  describe("when try get an user by id", () => {
+    it("should be return 200, and data of user", () => {
+      return request(app)
+        .get(`/api/users/${id}`)
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then((res) => {
+          expect(res.body).toBeDefined();
+          expect(res.body.createdAt).toBeDefined();
+          expect(res.body.updatedAt).toBeDefined();
+        });
+    });
+  });
+
+  describe("when try get an list of users", () => {
+    it("should be return 200, and data of user", () => {
+      return request(app)
+        .get(`/api/users/`)
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then((res) => {
+          expect(res.body).toBeDefined();
+          expect(res.body.length).toBeGreaterThan(0);
+          res.body.forEach((user) => {
+            expect(user.createdAt).toBeDefined();
+            expect(user.updatedAt).toBeDefined();
+          });
+        });
+    });
+  });
+
   describe("when try update an user", () => {
     it("should be return 202, and data of user", () => {
       const newUser = { name: "Manny", email: "jose@email.com" };
@@ -52,6 +86,16 @@ describe("Create user endpoint", () => {
           expect(res.body.createdAt).toBeDefined();
           expect(res.body.updatedAt).toBeDefined();
         });
+    });
+  });
+
+  describe("when try update an user", () => {
+    it("should be return 202, and data of user", () => {
+      return request(app)
+        .del(`/api/users/${id}`)
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(204);
     });
   });
 });
