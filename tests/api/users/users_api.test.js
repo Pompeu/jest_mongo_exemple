@@ -89,12 +89,11 @@ describe("Create user endpoint", () => {
     });
   });
 
-  describe("when try update an user", () => {
-    it("should be return 202, and data of user", () => {
+  describe("when try delete an user by id", () => {
+    it("should be return 204, and data of user", () => {
       return request(app)
-        .del(`/api/users/${id}`)
+        .delete(`/api/users/${id}`)
         .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
         .expect(204);
     });
   });

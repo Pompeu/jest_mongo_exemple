@@ -1,14 +1,11 @@
 const { User } = require("../models");
 
-const userUpdate = (req, res, next) => {
+const userDeleteOne = (req, res, next) => {
   return User.deleteOne({ _id: req.params.id })
-    .then((removed) => {
-      console.log(removed);
-      res.status(204);
-    })
+    .then(() => res.status(204).end())
     .catch((err) => {
       return res.status(500).json(err.message);
     });
 };
 
-module.exports = userUpdate;
+module.exports = userDeleteOne;

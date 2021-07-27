@@ -3,5 +3,5 @@ module.exports = {
   userUpdate: require("./users_update_controller"),
   userGetOne: require("./users_get_one_controller"),
   userGetAll: require("./users_get_all_controller"),
-  userDelete: require("./users_delete_controller"),
+  userDeleteOne: require("./users_delete_controller"),
 };
