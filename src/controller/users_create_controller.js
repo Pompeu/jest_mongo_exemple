@@ -1,5 +1,13 @@
+const { User } = require("../models");
+
 const userCreate = (req, res, next) => {
-  return res.status(201).json(req.body);
+  return User.create(req.body)
+    .then((newUser) => {
+      res.status(201).json(newUser);
+    })
+    .catch((err) => {
+      return res.status(500).json(err.message);
+    });
 };
 
 module.exports = userCreate;
