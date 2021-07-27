@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "./src/bin/www",
     "test": "jest"
   },
   "repository": {
@@ -20,14 +21,13 @@
   },
   "homepage": "https://github.com/Pompeu/jest_mongo_exemple#readme",
   "dependencies": {
-    "@shelf/jest-mongodb": "^2.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
     "morgan": "^1.10.0",
-    "superagent": "^6.1.0",
     "supertest": "^6.1.4"
   },
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "@shelf/jest-mongodb": "^2.0.1"
   }
 }

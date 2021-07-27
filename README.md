@@ -1,4 +1,7 @@
 #Docs
 
 ## pendencias
--linter
+- linter
+- create domain folder
+- create a config db
+
