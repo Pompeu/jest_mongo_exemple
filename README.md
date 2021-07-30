@@ -7,3 +7,4 @@
 - create a config db
 - todo validar body email
 - todo test api email
+- config jest conv

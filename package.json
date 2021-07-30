@@ -10,10 +10,6 @@
     "start": "./src/bin/www",
     "test": "NODE_ENV=testing jest --coverage --detectOpenHandles"
   },
-  "jest": {
-    "collectCoverage": true,
-    "coverageReporters": ["json", "html"]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pompeu/jest_mongo_exemple.git"

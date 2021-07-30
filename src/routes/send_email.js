@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { sendEmail } = require("../controller/index");
+const { sendMail } = require("../controller/index");
+const { sendMailInject } = require("../middlewares/index");
 
-router.post("/sendemail", sendEmail);
+router.post("/sendemail", sendMailInject, sendEmail);
 
 module.exports = router;
