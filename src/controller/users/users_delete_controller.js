@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User } = require("../../models");
 
 const userDeleteOne = (req, res) => {
   return User.deleteOne({ _id: req.params.id })

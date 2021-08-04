@@ -1,4 +1,4 @@
-const sendEmail = require("../../../src/controller/send_email_controller");
+const { sendMail } = require("../../../src/controller");
 
 describe("send mail controller", () => {
   const sendMailService = {
@@ -23,7 +23,7 @@ describe("send mail controller", () => {
 
   describe("when calling", () => {
     it("should be res.json called", () => {
-      return sendEmail(req, res, next).then(() => {
+      return sendMail(req, res, next).then(() => {
         expect(res.json).toHaveBeenCalled();
         expect(next).not.toHaveBeenCalled();
       });

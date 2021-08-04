@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
   {
     name: "string",
-    email: "string",
+    email: { type: String, unique: true },
   },
   { timestamps: true }
 );

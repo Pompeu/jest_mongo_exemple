@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User } = require("../../models");
 
 const userUpdate = (req, res) => {
   return User.findOneAndUpdate({ _id: req.params.id }, req.body, {

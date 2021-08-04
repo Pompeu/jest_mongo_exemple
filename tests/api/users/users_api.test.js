@@ -1,16 +1,11 @@
 const request = require("supertest");
 const mongoose = require("mongoose");
 const app = require("../../../src/app");
+const conn = require("../../../src/config/mongo_conn");
 
 describe("create user endpoint", () => {
   let id = "";
-  beforeAll(() => {
-    mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
-  });
+  beforeAll(() => conn());
 
   afterAll(() => {
     return mongoose.connection.close();
@@ -37,6 +32,23 @@ describe("create user endpoint", () => {
     });
   });
 
+  describe("when try create a user with same email", () => {
+    it("should be return status 409", () => {
+      const newUser = { name: "Manny", email: "manuy@email.com" };
+
+      return request(app)
+        .post("/api/users")
+        .send(newUser)
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(409)
+        .then((res) => {
+          expect(res.status).toEqual(409);
+          expect(res.body.errors[0]).toEqual("this mail is in use!");
+        });
+    });
+  });
+
   describe("when try get an user by id", () => {
     it("should be return 200, and data of user", () => {
       return request(app)
@@ -53,7 +65,7 @@ describe("create user endpoint", () => {
   });
 
   describe("when try get an list of users", () => {
-    it("should be return 200, and data of user", () => {
+    it("should be return 200, and list of users", () => {
       return request(app)
         .get(`/api/users/`)
         .set("Accept", "application/json")
@@ -61,6 +73,7 @@ describe("create user endpoint", () => {
         .expect(200)
         .then((res) => {
           expect(res.body).toBeDefined();
+          expect(res.status).toEqual(200);
           expect(res.body.length).toBeGreaterThan(0);
           res.body.forEach((user) => {
             expect(user.createdAt).toBeDefined();
