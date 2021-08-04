@@ -1,6 +1,6 @@
 const { sendMail } = require("../../src/services");
 
-describe("Send mail service", () => {
+describe("send mail service", () => {
   // todo fix sendGrid mock
   const sgMailInject = {
     send: jest.fn(() => Promise.resolve({ data: {} })),
@@ -16,7 +16,7 @@ describe("Send mail service", () => {
     },
   };
 
-  describe("When try send mail", () => {
+  describe("when try send mail", () => {
     it("should be method send is called", () => {
       return sendMail(body, sgMailInject).then(() => {
         expect(sgMailInject.send).toHaveBeenCalled();
@@ -24,7 +24,7 @@ describe("Send mail service", () => {
     });
   });
 
-  describe("When not inject sendEmail", () => {
+  describe("when not inject sendEmail", () => {
     it("should be error", () => {
       sendMail(body);
       expect(sgMailInject.send).toHaveBeenCalled();

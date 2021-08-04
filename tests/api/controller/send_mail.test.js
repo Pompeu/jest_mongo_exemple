@@ -1,6 +1,6 @@
 const sendEmail = require("../../../src/controller/send_email_controller");
 
-describe("Send mail controller", () => {
+describe("send mail controller", () => {
   const sendMailService = {
     send: jest.fn(() => Promise.resolve({ data: {} })),
   };

@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-const userGetAll= (req, res, next) => {
+const userGetAll = (req, res) => {
   return User.find({})
     .then((users) => {
       res.status(200).json(users);

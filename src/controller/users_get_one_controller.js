@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-const userCreate = (req, res, next) => {
+const userCreate = (req, res) => {
   return User.findOne({ _id: req.params.id })
     .then((foundUser) => {
       res.status(200).json(foundUser);

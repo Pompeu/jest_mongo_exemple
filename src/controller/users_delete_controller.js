@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-const userDeleteOne = (req, res, next) => {
+const userDeleteOne = (req, res) => {
   return User.deleteOne({ _id: req.params.id })
     .then(() => res.status(204).end())
     .catch((err) => {

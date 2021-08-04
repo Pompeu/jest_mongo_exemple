@@ -1,6 +1,3 @@
-const fs = require("fs");
-const { from } = require("rxjs");
-const { filter, map } = require("rxjs/operators");
 const sgMail = require("@sendgrid/mail");
 
 require("dotenv").config();

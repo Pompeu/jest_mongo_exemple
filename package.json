@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "./src/bin/www",
-    "test": "NODE_ENV=testing jest --coverage --detectOpenHandles"
+    "test": "NODE_ENV=testing jest --coverage --detectOpenHandles",
+    "lint": "./node_modules/.bin/eslint --fix ./src ./tests"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,12 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
     "morgan": "^1.10.0",
-    "rxjs": "^7.3.0",
     "supertest": "^6.1.4"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.0.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest": "^24.4.0",
     "jest": "^27.0.6"
   }
 }

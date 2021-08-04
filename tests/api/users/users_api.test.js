@@ -2,7 +2,7 @@ const request = require("supertest");
 const mongoose = require("mongoose");
 const app = require("../../../src/app");
 
-describe("Create user endpoint", () => {
+describe("create user endpoint", () => {
   let id = "";
   beforeAll(() => {
     mongoose.connect(process.env.MONGO_URL, {
@@ -95,7 +95,8 @@ describe("Create user endpoint", () => {
       return request(app)
         .delete(`/api/users/${id}`)
         .set("Accept", "application/json")
-        .expect(204);
+        .expect(204)
+        .then((res) => expect(res.status).toEqual(204));
     });
   });
 });

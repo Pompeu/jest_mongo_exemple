@@ -3,11 +3,11 @@ const sendMail = (req, res, next) => {
 
   return sendMailService
     .send(req.body)
-    .then((result) => {
-      return res.json({
+    .then(() =>
+      res.json({
         message: "email enviado com sucesso",
-      });
-    })
+      })
+    )
     .catch(next);
 };
 
